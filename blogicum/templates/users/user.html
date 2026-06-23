@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{# Обязательно загружаем библиотеку bootstrap #}
+{% load django_bootstrap5 %} 
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 p-5">
+    <div class="card">
+      <div class="card-header">
+        Редактирование профиля
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          {# Рисуем форму автоматически средствами Bootstrap 5 #}
+          {% bootstrap_form form %}
+          
+          <button type="submit" class="btn btn-primary">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
